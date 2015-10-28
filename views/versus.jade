@@ -1,0 +1,73 @@
+extends master
+
+block content
+  .container(ng-controller="characterVersusController")
+
+    .row
+      .col-md-5 
+        h2.v-center {{character.challengerDetail.results.name}}
+        img(src='{{character.challengerDetail.results.image.medium_url}}', height='200', width='200')
+        p
+        b Deck:
+        p {{character.challengerDetail.results.deck}}    
+        b Origin:
+        | {{character.challengerDetail.results.origin.name}} ||  
+        b Publisher:
+        | {{character.challengerDetail.results.publisher.name}} 
+        a.btn.btn-default(ng-controller='CharacterController',style="width: 20%; height:30%; margin-top: 5px", href="character/{{character.challengerDetail.results.id}}") details
+        p
+        b Number of Teams: {{character.challengerDetail.results.teams.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2]")
+            {{character.challengerDetail.results.teams[i].name}}
+        p
+        b Number of Powers: {{character.challengerDetail.results.powers.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2,3,4]")
+            {{character.challengerDetail.results.powers[i].name}}
+        p
+        b Number of Friends: {{character.challengerDetail.results.character_friends.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")
+            a(href='Character/{{character.challengerDetail.results.character_friends[i].id}}',ng-controller="CharacterController") {{character.challengerDetail.results.character_friends[i].name}} 
+        p
+        b Number of Enemies: {{character.challengerDetail.results.character_enemies.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")
+            a(href='Character/{{character.challengerDetail.results.character_enemies[i].id}}',ng-controller="CharacterController") {{character.challengerDetail.results.character_enemies[i].name}}
+
+       
+
+      .col-md-2
+
+      .col-md-5 
+        h2.v-center {{character.mainDetail.results.name}}
+        img(src='{{character.mainDetail.results.image.medium_url}}', height='200', width='200')
+        p
+        b Deck:
+        p {{character.mainDetail.results.deck}}    
+        b Origin:
+        | {{character.mainDetail.results.origin.name}} ||  
+        b Publisher:
+        | {{character.mainDetail.results.publisher.name}} 
+        a.btn.btn-default(ng-controller='CharacterController',style="width: 20%; height:30%; margin-top: 5px", href="character/{{character.mainDetail.results.id}}") details
+        p
+        b Number of Teams: {{character.mainDetail.results.teams.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2]")
+            {{character.mainDetail.results.teams[i].name}}
+        p
+        b Number of Powers: {{character.mainDetail.results.powers.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2,3,4]")
+            {{character.mainDetail.results.powers[i].name}}
+        p
+        b Number of Friends: {{character.mainDetail.results.character_friends.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")
+            a(href='Character/{{character.mainDetail.results.character_friends[i].id}}',ng-controller="CharacterController") {{character.mainDetail.results.character_friends[i].name}} 
+        p
+        b Number of Enemies: {{character.mainDetail.results.character_enemies.length}}
+        div
+          p(data-ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")
+            a(href='Character/{{character.mainDetail.results.character_enemies[i].id}}',ng-controller="CharacterController") {{character.mainDetail.results.character_enemies[i].name}}

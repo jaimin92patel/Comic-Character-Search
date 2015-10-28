@@ -1,0 +1,41 @@
+.feature-block {
+  background: #EFEFEF;
+  border: 2px solid #f8f8f8;
+  min-height: 150px;
+}
+.Character-block {
+  padding: 20px 10px;
+  background: #efefef;
+}
+
+.more-results-block {
+  margin-top: 20px;
+  padding: 10px 10px;
+  background: #efefef;
+}
+
+.more-results-block a {
+  color: #9b479f;
+}
+
+.review-block {
+  padding: 20px 0px;
+}
+
+ul {
+  border: 0px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li.resultList {
+  padding: 5px;
+}
+
+li.resultList:nth-child(odd) {
+  background: #000000;
+}
+li.resultList:nth-child(even) {
+  background: #FFFFFF;
+}

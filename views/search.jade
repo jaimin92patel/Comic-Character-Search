@@ -1,0 +1,33 @@
+extends master
+
+block content
+  .container
+    h2.v-center search
+    p.lead /// find a Character by title
+
+    .row(ng-controller="CharacterController")
+      form.col-md-5
+        .input-group
+          input.form-control.input-md(type="text", ng-model="title")
+          span.input-group-btn
+            button.btn.btn-md.btn-warning.pull-right(type="submit", ng-click="searchCharacters()") search
+        p(ng-show="characters.length == 0")
+          i.yellow * no characters found
+
+        div.more-results-block(ng-show="characters.alternatives.length > 0 ")
+          p
+            i.span /// more results
+            hr
+          div(ng-repeat="alt in characters.alternatives")
+            a(href="#",ng-click="replaceCharacters(alt)") {{alt.name}}
+            
+
+      .col-md-1
+      .col-md-6.Character-block(ng-show="characters.main")
+        .col-md-12
+          p
+            h3(style="margin-top: 3px !important") {{characters.main.name}}
+            img(src='{{characters.main.image.small_url}}',height='200',width='300')
+            p  {{characters.main.deck}}
+            a.btn.btn-default(style="width: 30%; margin-top: 10px", href="Character/{{characters.main.id}}") details
+            

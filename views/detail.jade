@@ -1,0 +1,31 @@
+extends master
+
+block content
+  .container(ng-controller="CharacterDetailController")
+    h2.v-center {{Character.results.name}}
+    img(src='{{Character.results.image.small_url}}', height='200', width='200')
+    p
+    b Deck:
+    p {{Character.results.deck}}    
+    b Origin:
+    | {{Character.results.origin.name}} ||  
+    b Publisher:
+    | {{Character.results.publisher.name}} 
+    p
+    p 
+      button.btn.btn-default(style="width: 100%",ng-click="toggleCast()", ng-controller="CharacterController") {{'POWERS:'}} {{Character.results.powers.length}} 
+              ul(ng-show!="displayCast")
+                li(ng-repeat="cast in Character.results.powers")
+                   {{cast.name}}
+    p 
+      button.btn.btn-default(style="width: 100%",ng-click="toggleCast()", ng-controller="CharacterController") {{'Friends:'}} {{Character.results.character_friends.length}} 
+              ul(ng-show!="displayCast")
+                li(ng-repeat="cast in Character.results.character_friends")
+                   a.button.btn.btn-xs.btn-warning(href="character/{{Character.results.id}}/versus/{{cast.id}}") Vs 
+                   a(href='Character/{{cast.id}}',ng-controller="CharacterController") {{cast.name}}
+    p 
+      button.btn.btn-default(style="width: 100%",ng-click="toggleCast()", ng-controller="CharacterController") {{'Enemies:'}} {{Character.results.character_enemies.length}} 
+              ul(ng-show!="displayCast")
+                li(ng-repeat="cast in Character.results.character_enemies")
+                   a.button.btn.btn-xs.btn-warning(href="character/{{Character.results.id}}/versus/{{cast.id}}") Vs 
+                   a(href='Character/{{cast.id}}',ng-controller="CharacterController") {{cast.name}}
